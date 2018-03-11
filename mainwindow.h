@@ -17,6 +17,7 @@ public:
 	~MainWindow();
 
 private slots:
+	void on_fileNameEdit_returnPressed();
 	void on_entryEdit_returnPressed();
 	void on_startButton_clicked();
 	void on_eraseListButton_clicked();
@@ -24,6 +25,7 @@ private slots:
 private:
 	Ui::MainWindow *ui;
 	std::vector<std::string> entries;
+	void repopulateList();
 };
 
 #endif // MAINWINDOW_H
