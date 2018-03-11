@@ -21,6 +21,7 @@ private slots:
 	void on_entryEdit_returnPressed();
 	void on_startButton_clicked();
 	void on_eraseListButton_clicked();
+	void on_aboutButton_clicked();
 
 private:
 	Ui::MainWindow *ui;

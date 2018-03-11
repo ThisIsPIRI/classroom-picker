@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include <picker_random.h>
+#include "picker_random.h"
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 	ui->setupUi(this);
 	ui->mainLayout->setAlignment(ui->startButton, Qt::AlignHCenter);
 	ui->mainLayout->setAlignment(ui->randomTypeBox, Qt::AlignHCenter);
+	setWindowTitle("Classroom Picker");
 }
 
 MainWindow::~MainWindow() {
@@ -58,7 +59,18 @@ void MainWindow::on_eraseListButton_clicked() {
 	ui->entryList->clear();
 	entries.clear();
 }
+
 void MainWindow::repopulateList() {
 	ui->entryList->clear();
 	for(std::string s : entries) ui->entryList->addItem(QString::fromStdString(s));
+}
+
+void MainWindow::on_aboutButton_clicked() {
+	QMessageBox box;
+	box.setText("Classroom Picker\n\
+Made with Qt 5.10.1, GPLv3\n\
+Mersenne Twister seeding by Baum mit Augen, Deduplicator and Kurt M at \
+https://codereview.stackexchange.com/questions/109260, CC BY-SA 3.0\n\
+Released under the GNU GPL v3.0");
+	box.exec();
 }
